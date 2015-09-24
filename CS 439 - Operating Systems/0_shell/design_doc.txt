@@ -1,0 +1,108 @@
+################
+YOUR INFO
+################
+Name1: Jung Yoon 
+EID1: jey283
+CS login: jungyoon
+Email: jungyoon@utexas.edu
+Unique Number: 53015
+
+Slip days used: 0
+
+****EACH student submits a (unique) design document.****
+
+################
+YOUR PARTNER'S INFO
+################
+Name1: Kyung Yoo
+EID1: ksy228
+CS login: ksy228
+Email:  ksy228@cs.utexas.edu
+Unique Number: 53010
+
+Your partner's ranking (scale below): Excellent
+
+################
+PARTNER EVALUATION SCALE
+################
+Excellent: Consistently went above and beyond - tutored others, carried
+more than his/her fair share of the load.
+
+Very Good: Consistently did what he/she was supposed to do, very well
+prepared and cooperative.
+
+Satisfactory: Usually did what he/she was supposed to do, minimally
+prepared and cooperative.
+
+Marginal: Sometimes failed to show up and/or rarely prepared.
+
+Deficient: Often failed to show up and/or rarely prepared.
+
+Unsatisfactory: Consistently failed to show up and/or unprepared.
+
+Superficial: Practically no participation.
+
+No Show: No participation at all.
+
+################
+Preliminaries
+################
+(1) If you have any preliminary comments on your submission, notes for
+  the TAs, or extra credit, please give them here.
+
+(2) Please cite any offline or online sources you consulted while
+  preparing your submission, other than the Linux documentation,
+  course text, and lecture notes.
+  
+  https://d1b10bmlvqabco.cloudfront.net/attach/hz0o9br0oeh3iz/h6ffjnx3d2mna/i002fk3dcvm9/Discussion_09_11.pdf
+  http://linux.die.net/ (documentation)
+  http://unix.stackexchange.com/
+  http://stackoverflow.com/
+  http://www.tutorialspoint.com/ansi_c/c_strcmp.htm
+
+  Fork & Exec examples:
+  http://www.csl.mtu.edu/cs4411.ck/www/NOTES/process/fork/exec.html
+  http://www.cs.ecu.edu/karl/4630/sum01/example1.html
+  http://linux.about.com/library/cmd/blcmdl3_execvp.htm
+
+################
+Questions regarding Part 0
+################
+(1) How many child processes are created when doFib() begins with
+  an input of 5?  Show the return value for each child process, numbering
+  the processes beginning with 0 (the original process) and incrementing for
+  each child process.
+
+(2) In part 0.3, which flavor of exec did you choose to use?  Why?
+
+
+################
+Questions regarding Part 1
+################
+(1) In the provided utility function Signal(), what does the call to
+  sigaction() do?  Why was sigaction() used instead of signal()?
+
+(2) What is the last assembly language instruction executed by the
+  signal handler function that you write?  (You may choose either signal
+  handler.)
+
+(3) After the instruction identified in the previous question executes, 
+  what is the next assembly language instruction executed?
+
+(4) When the signal handler finishes running, it must restore all of
+  the registers from the interrupted thread to exactly their values
+  before the signal occurred. How is this done?
+
+  The registers are pushed in a stack before it executes whatever it needs
+  in accordance to the interupt and then pops the stack to restore the 
+  register's original values before the interupt once it is done with execution. 
+
+################
+Questions regarding Part 2
+################
+(1) In msh.c, we use three separate signal handlers to catch our signals. 
+  You can also use a single signal handler to catch all three signals.  Is
+  there a design advantage of one over the other?  Explain your answer.
+
+
+

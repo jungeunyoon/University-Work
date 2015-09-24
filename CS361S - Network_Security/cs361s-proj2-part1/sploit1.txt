@@ -1,0 +1,8 @@
+SPLOIT 1:
+We know that target1 is exploitable because there is nothing to catch the argument when it's greater than the size given, 98. That is, we can overflow it by passing an argument, which is the buffer, that is greater than size 98. 
+
+We want to store the shellcode into the buffer/argument and then we want to overwrite foo frame's eip, which points to the next instruction, to point at the buffer that contains the shellcode. We're using the exploit to alter the program's flow by making it point to buf.
+
+We know that an address requires 8 bytes so we add that to 98 to get 106. Then, we must consider that we also need a null to terminate the argument so that's how we got 107 for the new size. 
+
+Then, it's literally just a matter of filling the argument with the shellcode and the address of buf.

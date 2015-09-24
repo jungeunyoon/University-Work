@@ -1,0 +1,621 @@
+ 
+------------------------------------------------------------
+Test  1 :
+------------------------------------------------------------
+Our run:
+#
+# trace01.txt - Properly terminate on EOF.
+#
+ 
+Reference run:
+#
+# trace01.txt - Properly terminate on EOF.
+#
+ 
+------------------------------------------------------------
+Test  2 :
+------------------------------------------------------------
+Our run:
+#
+# trace02.txt - Process builtin quit command.
+#
+ 
+Reference run:
+#
+# trace02.txt - Process builtin quit command.
+#
+ 
+------------------------------------------------------------
+Test  3 :
+------------------------------------------------------------
+Our run:
+#
+# trace03.txt - Run a foreground job.
+#
+msh> quit
+ 
+Reference run:
+#
+# trace03.txt - Run a foreground job.
+#
+msh> quit
+ 
+------------------------------------------------------------
+Test  4 :
+------------------------------------------------------------
+Our run:
+#
+# trace04.txt - Run a background job.
+#
+msh> ./myspin 1 &
+[1] (pid) ./myspin 1 &
+ 
+Reference run:
+#
+# trace04.txt - Run a background job.
+#
+msh> ./myspin 1 &
+[1] (pid) ./myspin 1 &
+ 
+------------------------------------------------------------
+Test  5 :
+------------------------------------------------------------
+Our run:
+#
+# trace05.txt - Process jobs builtin command.
+#
+msh> ./myspin 2 &
+[1] (pid) ./myspin 2 &
+msh> ./myspin 3 &
+[2] (pid) ./myspin 3 &
+msh> jobs
+[1] (pid) Running ./myspin 2 &
+[2] (pid) Running ./myspin 3 &
+ 
+Reference run:
+#
+# trace05.txt - Process jobs builtin command.
+#
+msh> ./myspin 2 &
+[1] (pid) ./myspin 2 &
+msh> ./myspin 3 &
+[2] (pid) ./myspin 3 &
+msh> jobs
+[1] (pid) Running ./myspin 2 &
+[2] (pid) Running ./myspin 3 &
+ 
+------------------------------------------------------------
+Test  6 :
+------------------------------------------------------------
+Our run:
+#
+# trace06.txt - Forward SIGINT to foreground job.
+#
+msh> ./myspin 4
+Job [1] (pid) terminated by signal 2
+ 
+Reference run:
+#
+# trace06.txt - Forward SIGINT to foreground job.
+#
+msh> ./myspin 4
+Job [1] (pid) terminated by signal 2
+ 
+------------------------------------------------------------
+Test  7 :
+------------------------------------------------------------
+Our run:
+#
+# trace07.txt - Forward SIGINT only to foreground job.
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (pid) terminated by signal 2
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+ 
+Reference run:
+#
+# trace07.txt - Forward SIGINT only to foreground job.
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (pid) terminated by signal 2
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+ 
+------------------------------------------------------------
+Test  8 :
+------------------------------------------------------------
+Our run:
+#
+# trace08.txt - Forward SIGTSTP only to foreground job.
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+[2] (pid) Stopped ./myspin 5 
+ 
+Reference run:
+#
+# trace08.txt - Forward SIGTSTP only to foreground job.
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+[2] (pid) Stopped ./myspin 5 
+ 
+------------------------------------------------------------
+Test  9 :
+------------------------------------------------------------
+Our run:
+#
+# trace09.txt - Process bg builtin command
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+[2] (pid) Stopped ./myspin 5 
+msh> bg %2
+[2] (pid) ./myspin 5 
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+[2] (pid) Running ./myspin 5 
+ 
+Reference run:
+#
+# trace09.txt - Process bg builtin command
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> ./myspin 5
+Job [2] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+[2] (pid) Stopped ./myspin 5 
+msh> bg %2
+[2] (pid) ./myspin 5 
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+[2] (pid) Running ./myspin 5 
+ 
+------------------------------------------------------------
+Test  10 :
+------------------------------------------------------------
+Our run:
+#
+# trace10.txt - Process fg builtin command. 
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> fg %1
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./myspin 4 &
+msh> fg %1
+msh> jobs
+ 
+Reference run:
+#
+# trace10.txt - Process fg builtin command. 
+#
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> fg %1
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./myspin 4 &
+msh> fg %1
+msh> jobs
+ 
+------------------------------------------------------------
+Test  11 :
+------------------------------------------------------------
+Our run:
+#
+# trace11.txt - Forward SIGINT to every process in foreground process group
+#
+msh> ./mysplit 4
+Job [1] (pid) terminated by signal 2
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16115 pts/0    S+     0:00 make test11
+16116 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./msh -a "-p"
+16117 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./msh -a -p
+16118 pts/0    S+     0:00 ./msh -p
+16123 pts/0    R      0:00 /bin/ps a
+ 
+Reference run:
+#
+# trace11.txt - Forward SIGINT to every process in foreground process group
+#
+msh> ./mysplit 4
+Job [1] (pid) terminated by signal 2
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16127 pts/0    S+     0:00 make rtest11
+16128 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./mshref -a "-p"
+16129 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./mshref -a -p
+16130 pts/0    S+     0:00 ./mshref -p
+16135 pts/0    R      0:00 /bin/ps a
+ 
+------------------------------------------------------------
+Test  12 :
+------------------------------------------------------------
+Our run:
+#
+# trace12.txt - Forward SIGTSTP to every process in foreground process group
+#
+msh> ./mysplit 4
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./mysplit 4 
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16140 pts/0    S+     0:00 make test12
+16141 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./msh -a "-p"
+16142 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./msh -a -p
+16143 pts/0    S+     0:00 ./msh -p
+16145 pts/0    T      0:00 ./mysplit 4
+16146 pts/0    T      0:00 ./mysplit 4
+16149 pts/0    R      0:00 /bin/ps a
+ 
+Reference run:
+#
+# trace12.txt - Forward SIGTSTP to every process in foreground process group
+#
+msh> ./mysplit 4
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./mysplit 4 
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16153 pts/0    S+     0:00 make rtest12
+16154 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./mshref -a "-p"
+16155 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./mshref -a -p
+16156 pts/0    S+     0:00 ./mshref -p
+16158 pts/0    T      0:00 ./mysplit 4
+16159 pts/0    T      0:00 ./mysplit 4
+16162 pts/0    R      0:00 /bin/ps a
+ 
+------------------------------------------------------------
+Test  13 :
+------------------------------------------------------------
+Our run:
+#
+# trace13.txt - Restart every stopped process in process group
+#
+msh> ./mysplit 4
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./mysplit 4 
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16167 pts/0    S+     0:00 make test13
+16168 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./msh -a "-p"
+16169 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./msh -a -p
+16170 pts/0    S+     0:00 ./msh -p
+16172 pts/0    T      0:00 ./mysplit 4
+16173 pts/0    T      0:00 ./mysplit 4
+16176 pts/0    R      0:00 /bin/ps a
+msh> fg %1
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16167 pts/0    S+     0:00 make test13
+16168 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./msh -a "-p"
+16169 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./msh -a -p
+16170 pts/0    S+     0:00 ./msh -p
+16179 pts/0    R      0:00 /bin/ps a
+ 
+Reference run:
+#
+# trace13.txt - Restart every stopped process in process group
+#
+msh> ./mysplit 4
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./mysplit 4 
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:11 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16183 pts/0    S+     0:00 make rtest13
+16184 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./mshref -a "-p"
+16185 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./mshref -a -p
+16186 pts/0    S+     0:00 ./mshref -p
+16188 pts/0    T      0:00 ./mysplit 4
+16189 pts/0    T      0:00 ./mysplit 4
+16192 pts/0    R      0:00 /bin/ps a
+msh> fg %1
+msh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1081 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1086 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1095 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1096 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1099 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 2322 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 5349 pts/0    Ss     0:00 -bash
+ 9283 tty7     Ss+    3:12 /usr/bin/X :0 vt7 -br -nolisten tcp -auth /var/run/xauth/A:0-QHtHCb
+10024 pts/1    Ss+    0:00 bash
+11913 pts/2    Ss     0:00 bash
+12317 pts/3    Ss+    0:00 -bash
+12880 pts/3    S      0:00 dbus-launch --autolaunch=b29051cd93c570c38a9c2f6f00000266 --binary-syntax --close-stderr
+15368 pts/2    S+     0:00 man sprintf
+15383 pts/2    S+     0:00 pager -s
+15390 pts/3    Sl     0:03 gedit
+16183 pts/0    S+     0:00 make rtest13
+16184 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./mshref -a "-p"
+16185 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./mshref -a -p
+16186 pts/0    S+     0:00 ./mshref -p
+16197 pts/0    R      0:00 /bin/ps a
+ 
+------------------------------------------------------------
+Test  14 :
+------------------------------------------------------------
+Our run:
+#
+# trace14.txt - Simple error handling
+#
+msh> ./bogus
+./bogus: Command not found
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> fg
+fg command requires PID or %jobid argument
+msh> bg
+bg command requires PID or %jobid argument
+msh> fg a
+fg: argument must be a PID or %jobid
+msh> bg a
+bg: argument must be a PID or %jobid
+msh> fg 9999999
+(pid): No such process
+msh> bg 9999999
+(pid): No such process
+msh> fg %2
+%2: No such job
+msh> fg %1
+Job [1] (pid) stopped by signal 20
+msh> bg %2
+%2: No such job
+msh> bg %1
+[1] (pid) ./myspin 4 &
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+ 
+Reference run:
+#
+# trace14.txt - Simple error handling
+#
+msh> ./bogus
+./bogus: Command not found
+msh> ./myspin 4 &
+[1] (pid) ./myspin 4 &
+msh> fg
+fg command requires PID or %jobid argument
+msh> bg
+bg command requires PID or %jobid argument
+msh> fg a
+fg: argument must be a PID or %jobid
+msh> bg a
+bg: argument must be a PID or %jobid
+msh> fg 9999999
+(pid): No such process
+msh> bg 9999999
+(pid): No such process
+msh> fg %2
+%2: No such job
+msh> fg %1
+Job [1] (pid) stopped by signal 20
+msh> bg %2
+%2: No such job
+msh> bg %1
+[1] (pid) ./myspin 4 &
+msh> jobs
+[1] (pid) Running ./myspin 4 &
+ 
+------------------------------------------------------------
+Test  15 :
+------------------------------------------------------------
+Our run:
+#
+# trace15.txt - Putting it all together
+#
+msh> ./bogus
+./bogus: Command not found
+msh> ./myspin 10
+Job [1] (pid) terminated by signal 2
+msh> ./myspin 3 &
+[1] (pid) ./myspin 3 &
+msh> ./myspin 4 &
+[2] (pid) ./myspin 4 &
+msh> jobs
+[1] (pid) Running ./myspin 3 &
+[2] (pid) Running ./myspin 4 &
+msh> fg %1
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./myspin 3 &
+[2] (pid) Running ./myspin 4 &
+msh> bg %3
+%3: No such job
+msh> bg %1
+[1] (pid) ./myspin 3 &
+msh> jobs
+[1] (pid) Running ./myspin 3 &
+[2] (pid) Running ./myspin 4 &
+msh> fg %1
+msh> quit
+ 
+Reference run:
+#
+# trace15.txt - Putting it all together
+#
+msh> ./bogus
+./bogus: Command not found
+msh> ./myspin 10
+Job [1] (pid) terminated by signal 2
+msh> ./myspin 3 &
+[1] (pid) ./myspin 3 &
+msh> ./myspin 4 &
+[2] (pid) ./myspin 4 &
+msh> jobs
+[1] (pid) Running ./myspin 3 &
+[2] (pid) Running ./myspin 4 &
+msh> fg %1
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./myspin 3 &
+[2] (pid) Running ./myspin 4 &
+msh> bg %3
+%3: No such job
+msh> bg %1
+[1] (pid) ./myspin 3 &
+msh> jobs
+[1] (pid) Running ./myspin 3 &
+[2] (pid) Running ./myspin 4 &
+msh> fg %1
+msh> quit
+ 
+------------------------------------------------------------
+Test  16 :
+------------------------------------------------------------
+Our run:
+#
+# trace16.txt - Tests whether the shell can handle SIGTSTP and SIGINT
+#     signals that come from other processes instead of the terminal.
+#
+msh> ./mystop 2
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./mystop 2
+msh> ./myint 2
+Job [2] (pid) terminated by signal 2
+ 
+Reference run:
+#
+# trace16.txt - Tests whether the shell can handle SIGTSTP and SIGINT
+#     signals that come from other processes instead of the terminal.
+#
+msh> ./mystop 2
+Job [1] (pid) stopped by signal 20
+msh> jobs
+[1] (pid) Stopped ./mystop 2
+msh> ./myint 2
+Job [2] (pid) terminated by signal 2
+ 

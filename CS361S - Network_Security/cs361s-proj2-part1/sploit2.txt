@@ -1,0 +1,10 @@
+SPLOIT 2:
+We know that target2 is exploitable because in the for loop in the nstrcpy method, it should be i < len instead of i <= length. That is, the argument can be extended a byte to exploit the system when in's length is greater than out's length. 
+
+We know that the argument that we pass it from sploit2.c should be 2 bytes greater, one for the exploit and one to null terminate. Since buf is 142, we have to pass it an argument that's 144.
+
+We find that the address of buf is 0xbffffd4a, which is ebp, and since we can only modify one byte, we know that it has to be in the form, 0xbffffd--. In other words, we are trying to change the least significant byte of the foo frame's ebp. Then, looking at the frame, we know that edp is at 0xbffffdd8 and that eip is at 0xbffffddc. This would mean that we would have to direct to a value between 4A and D8. To be safe, we arbitrarily chose to set the altering byte to 0xD0, which fits our criteria perfectly. 
+
+Then, it's literally just a matter of filling the argument with the shellcode and the address of buf, as we did before in sploit 1. 
+
+Generally speaking, everything is pretty similar to sploit 1, in terms of having to fill with 'A's, null terminating, copying over the shellcode. It's just that they're modifying different parts of the frame.  

@@ -1,0 +1,133 @@
+commit 17d79b857f1721f4e8b61564b02db562ad18c7c2
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 30 13:31:34 2015 -0500
+
+    Make Clean for Travis CI
+
+commit b11674ad55a48fcdc6a227d216acd93e0d3ed98a
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 30 13:02:25 2015 -0500
+
+    Revert 264f1d3..5693443
+    
+    This rolls back to commit 264f1d34420ad1fc8d2d8eef4f20f55a3012827b.
+
+commit 5693443ae21b0dbdd3c07b66384f01b39a22641d
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 30 12:56:55 2015 -0500
+
+    push clean for travis ci
+
+commit 53f2e7efa0ca907f6222a1351a6989933e5bebba
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 30 12:42:09 2015 -0500
+
+    Had to make clean for travis
+
+commit a085a6f7d67ac4c0c3f52b779e3f3fdd85ac4911
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 30 12:41:52 2015 -0500
+
+    Changed makefile / travis.yml to fix numpy
+
+commit 264f1d34420ad1fc8d2d8eef4f20f55a3012827b
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 29 19:53:49 2015 -0500
+
+    Fixed script - push to Travis CI
+
+commit 2819c3121074badde6fa7e6f76bc4bf5c3bbbff2
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 29 19:43:21 2015 -0500
+
+    Fixed Script - push to Travis CI
+
+commit e1aee2eada652f835dc80ca3a9f900f37bff8289
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 29 19:39:39 2015 -0500
+
+    travis ci - adding pip
+
+commit ec1b267f5cdf12d2746ad62d1c2d1baf892a8288
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 29 19:33:28 2015 -0500
+
+    Travis CI - numpy again
+
+commit 23f01a829e84d73e7bb6ed750c155211e985de16
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 29 19:30:01 2015 -0500
+
+    Travis CI - numpy fix
+
+commit effd8b7c3fffe7a403afcfe0551f3abbb59b5be5
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 29 19:20:10 2015 -0500
+
+    Fixed script
+
+commit 8dfb182fc2bd57cf7ea738e428d58a4a9bffa083
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 24 22:06:32 2015 -0500
+
+    forgot to make clean - numpy again
+
+commit 2aebca2a1547d4e7ae7a12d1e6fac73177eaab5c
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 24 22:04:09 2015 -0500
+
+    try again - bumpy
+
+commit 7252af30c6dcadbc642c527b9c26d75f3f4efacb
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 24 21:58:31 2015 -0500
+
+    Travis CI issue - bumpy not working for "make Netflix.html"
+
+commit 8ab3c73b23d34fab5098c0921872dd8abbd4b771
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 24 21:42:59 2015 -0500
+
+    Final push
+
+commit 6fb70ddd557136286d9e7154de7ebfed528c4f68
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 24 21:35:36 2015 -0500
+
+    Checking Travis CI one last time
+
+commit b2b3b32ec7eb3a683d2716fe89892bc8e9a082bd
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 24 02:41:52 2015 -0500
+
+    Got RMSE < 1; .98 now. Closes jungeunyoon/cs373-netflix#13
+
+commit 95edc05ca4d18ea787a0286e240679a850476f25
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 23 22:28:59 2015 -0500
+
+    12. Implement and debug the simplest possible solution in Netflix.py with assertions that check pre-conditions, post-conditions, argument validity, and return-value validity, until all tests pass, and add, commit, and push to the private code repo.
+
+commit 199c1df62f056702184fbacaa7cbfbc5874eb13b
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 23 20:44:08 2015 -0500
+
+    Closes jungeunyoon/cs373-netflix#16
+
+commit 339aa0a834c03ec726b66bfb0a48610e0fa6151a
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 23 20:36:49 2015 -0500
+
+    11. Write unit tests in TestNetflix.py that test corner cases and failure cases until you have an average of 3 tests for each function, confirm the expected failures, and add, commit, and push to the private code repo.
+
+commit 0496b0c7b3940963fda44c50a9a051eaf3b73ea6
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 22 19:20:43 2015 -0500
+
+    Closes jungeunyoon/cs373-netflix#10
+
+commit b2803a3529d56d1b466fcb2a9ba9a14bcd83cac5
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 21 15:14:53 2015 -0500
+
+    Initial commit

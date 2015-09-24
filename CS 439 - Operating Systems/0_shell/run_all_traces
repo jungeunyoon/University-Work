@@ -1,0 +1,50 @@
+run_test()
+{
+	echo 'Running' $1
+	echo '------------------------------------------------------------'
+	make $1 > test.txt
+	perl -pi -e 's/\([^)]*\)/\(pid\)/g' test.txt
+	sed -i -e '1d' test.txt
+	echo '------------------------------------------------------------' >> test_full_trace.txt
+	echo 'Test ' $2 ':' >> test_full_trace.txt
+	echo '------------------------------------------------------------' >> test_full_trace.txt
+	
+	echo 'Our run:' >> test_full_trace.txt
+	cat test.txt >> test_full_trace.txt
+	make $3 > rtest.txt
+	perl -pi -e 's/\([^)]*\)/\(pid\)/g' rtest.txt
+	sed -i -e '1d' rtest.txt
+	echo ' ' >> test_full_trace.txt
+	echo 'Reference run:' >> test_full_trace.txt
+	cat rtest.txt >> test_full_trace.txt
+	echo ' ' >> test_full_trace.txt
+	echo '------------------------------------------------------------' >> test_diffs.txt
+	echo 'Test' $2 'Differences' >> test_diffs.txt
+	echo '------------------------------------------------------------' >> test_diffs.txt
+	diff test.txt rtest.txt >> test_diffs.txt
+}
+
+echo ' ' > test_full_trace.txt
+echo ' ' > test_diffs.txt
+
+run_test test01 1 rtest01
+run_test test02 2 rtest02
+run_test test03 3 rtest03
+run_test test04 4 rtest04
+run_test test05 5 rtest05
+run_test test06 6 rtest06
+run_test test07 7 rtest07
+run_test test08 8 rtest08
+run_test test09 9 rtest09
+run_test test10 10 rtest10
+run_test test11 11 rtest11
+run_test test12 12 rtest12
+run_test test13 13 rtest13
+run_test test14 14 rtest14
+run_test test15 15 rtest15
+run_test test16 16 rtest16
+
+echo 'DONE'
+echo ' '
+echo 'NOTE: differences of tests in test_diffs.txt file'
+echo 'NOTE: full trace of all tests in test_full_trace.txt'

@@ -1,0 +1,10 @@
+_site
+.DS_Store
+.jekyll
+.bundle
+.sass-cache
+Gemfile
+Gemfile.lock
+node_modules
+package.json
+_posts/.2015-6-28-Week-Three.md.swp

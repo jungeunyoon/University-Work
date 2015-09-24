@@ -1,0 +1,270 @@
+commit f59408cbaa46705ed15942f41c79d8aa2333e42f
+Merge: a53155d c871cf8
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 21:02:09 2015 -0500
+
+    Merge branch 'master' into dev
+
+commit c871cf87b77d57d828577fb6183b250004a5e71c
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 21:01:47 2015 -0500
+
+    Had to "make clean" for Travis CI
+
+commit 64508141cbb436fa29883f85d9b3ef2133b1d088
+Merge: 764c469 a53155d
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 19:11:22 2015 -0500
+
+    Merge branch 'dev'
+
+commit a53155d32d0e630c5ee49601ef594b07c1343e91
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 19:07:59 2015 -0500
+
+    Last push
+
+commit 6ca02a04f9c8e186152383f95e515663c65c6982
+Merge: 6ef201f 764c469
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 19:04:35 2015 -0500
+
+    Merge branch 'master' into dev
+
+commit 6ef201ffe31f0bd523e13b30fe0361fc0ed5e777
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 19:03:50 2015 -0500
+
+    Remove .commit
+
+commit dd0e339ef142100d01e80971e26a724a307516dd
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 19:03:40 2015 -0500
+
+    Remove pycache
+
+commit 764c4690ac54f0104d92e0a7a55cbb61474e6f8b
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 18:59:26 2015 -0500
+
+    Final - Final push
+
+commit f21bb8e576b2b98a98b6c390dbbef642ee377d51
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 18:52:53 2015 -0500
+
+    Remove pycache
+
+commit 00e795f770319b0f99c9a8967b82f415bb2c0f15
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 18:52:24 2015 -0500
+
+    Remove .commit
+
+commit a985dfc1de8b51ef329554dc11547edc1267e3bd
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 18:49:01 2015 -0500
+
+    Submitting
+
+commit 99580885979f9c4a85b292b7325f4c8a7fd77b57
+Merge: 0feff62 c5ece0f
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 18:40:44 2015 -0500
+
+    Merge branch 'dev'
+
+commit c5ece0f7d9295ef075019b0bb3dbd503a75497cf
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Wed Jun 17 18:36:02 2015 -0500
+
+    Final check
+
+commit 0feff6217471d3b9b255ed96e29ee07b8ae5d0a4
+Merge: 64ff0f1 e67277e
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 16:28:53 2015 -0500
+
+    Merge branch 'dev'
+
+commit e67277ec9456465423d412dbabf299b8ab10192e
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 16:24:05 2015 -0500
+
+    Final push - all working
+
+commit 101c73d615242485ed819b0f6e29c3e24c270589
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 16:01:49 2015 -0500
+
+    Works up to 33: Everything done except for form and SHA
+
+commit 187b6dcfa931d899f4532b9f4b78b96da2b198cc
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 15:47:33 2015 -0500
+
+    Acceptance tests
+    
+    Create 100 lines of acceptance tests in RunCollatz.in and
+    RunCollatz.out that test corner cases and failure cases, and add,
+    commit, and push to the private code repo
+
+commit d59fb012fe95c3945258e7295757407126d6791c
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 13:21:14 2015 -0500
+
+    Up to 38: Lazy Cache works
+
+commit 5d0f8016cc28924c63b77038c1fa8050fb4c2785
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 04:33:42 2015 -0500
+
+    Reverting back to before cache
+
+commit 1e15512b6aa48d430dd5d0f5f3d621427251139f
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 04:25:26 2015 -0500
+
+    here
+
+commit 09e3cbab073103026e89fdba685cf9ec7696cd84
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 04:09:44 2015 -0500
+
+    Up to #28: Simplest cache
+    
+    mplement and debug the simplest possible cache until all tests pass,
+    and add, commit, and push to the private code repo.
+
+commit b5d0e037fa58c231ac4473ad3f203323388b1a19
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 03:39:23 2015 -0500
+
+    Optimization -->  n + (n >> 1) + 1
+
+commit 64ff0f10428b7ad1e638c5666c9c4e8b24dbcc4e
+Merge: 5e786b6 f21c5d0
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 02:31:22 2015 -0500
+
+    Merge branch 'dev'
+
+commit f21c5d00250610f8234a6f0345fcfc6915e105ef
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 02:29:28 2015 -0500
+
+    Up to #23: accepted by Sphere
+    
+    Debug the code until it's accepted by Sphere, and add, commit, and push
+    to the private code repo.
+
+commit 5a957d23f3b62d8c91eb2b777dcc229eebe18951
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Tue Jun 16 02:08:27 2015 -0500
+
+    Up to 18: simplest solution
+    
+    Implement and debug the simplest possible solution in collatz_eval() in
+    Collatz.py with assertions that check pre-conditions, post-conditions,
+    argument validity, and return-value validity, until all tests pass, and
+    add, commit, and push to the private code repo.
+
+commit 911cdec9ff9e415c26d024f4b5f20ee76d1ae0b3
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 15 22:15:01 2015 -0500
+
+    Up to #17: unit tests for all functions
+    
+    Write more unit tests in TestCollatz.py that test corner cases and
+    failure cases until you have an average of 3 tests for each function,
+    confirm the expected failures, and add, commit, and push to the private
+    code repo.
+
+commit 9e3aea2a3ce29049bc9dd22078672441fda20158
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 15 21:46:05 2015 -0500
+
+    Revert "Revert "#16 Done: Fix the given unit tests with failures""
+    
+    This reverts commit 4aa139bfaab767468a7de2624e6ea71a7c620dc2.
+
+commit 4aa139bfaab767468a7de2624e6ea71a7c620dc2
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 15 21:40:01 2015 -0500
+
+    Revert "#16 Done: Fix the given unit tests with failures"
+    
+    This reverts commit 896f30ef6250ac4d80d3d8d4c4f462c04dda5551.
+
+commit 896f30ef6250ac4d80d3d8d4c4f462c04dda5551
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 15 03:03:07 2015 -0500
+
+    #16 Done: Fix the given unit tests with failures
+
+commit 5e786b6c27ca4da66f51a56f42a7583d49dcbec7
+Merge: 17ebcb9 e6ce865
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 15 00:24:17 2015 -0500
+
+    Merge branch 'dev'
+
+commit e6ce8651a065686b4c1380c15bd0c415f1e2928b
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Mon Jun 15 00:22:11 2015 -0500
+
+    Works up to #15
+    
+    Had to install coverage onto mac. Took a while to realize this.
+
+commit 5ddca3ba33f7048d21362dbcb90af9d3813f6275
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 14 17:18:22 2015 -0500
+
+    Turn off email notifications for travis ci
+
+commit ea8538df70d50a347f380cf840206b3da4c91397
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 14 17:03:43 2015 -0500
+
+    #13. Copy code files
+    
+    Copy the code files from the clone of the public class repo to the
+    clone of the private code repo.
+
+commit 281a1791525e16830877f551ac9e9bbd6e1cb134
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 14 16:52:17 2015 -0500
+
+    .travis.yml build error change back
+    
+    revert
+
+commit 2e72ff732d87abd78514019749c86b5f752bd772
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 14 15:46:57 2015 -0500
+
+    .travis.yml build error 2
+
+commit 92ee1bb0e162babae52d9831c76eb8cfa4103fec
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 14 15:35:10 2015 -0500
+
+    attempt to fix .travis.yml build error
+    
+    add “sudo: required” to .travis.yml file
+
+commit 7a4ba8d8204099c8ba09ee7612be9eadc128f6ef
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sun Jun 14 15:18:39 2015 -0500
+
+    Set up Travis CI
+    
+    - made dev branch
+    - added .travis.yml file
+
+commit 17ebcb94f9837946d155c4060e2eb7fb6d5b5029
+Author: Jung Yoon <jungyoon@utexas.edu>
+Date:   Sat Jun 13 15:06:26 2015 -0500
+
+    Initial commit
